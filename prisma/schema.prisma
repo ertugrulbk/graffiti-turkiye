@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Graffiti {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String?
+  year        Int?
+  imageUrl    String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  location    Location  @relation(fields: [locationId], references: [id])
+  locationId  Int
+  artists     Artist[]  @relation("ArtistToGraffiti")
+}
+
+model Artist {
+  id          Int         @id @default(autoincrement())
+  name        String
+  bio         String?
+  imageUrl    String?
+  socialMedia String?     // JSON olarak instagram, twitter vb. hesaplar saklanabilir
+  location    String?     // Sanatçının genel olarak bulunduğu şehir
+  specialty   String?     // Uzmanlık alanı
+  startYear   Int?        // Sanat hayatına başladığı yıl
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  graffitis   Graffiti[]  @relation("ArtistToGraffiti")
+}
+
+model Location {
+  id          Int         @id @default(autoincrement())
+  city        String      // Şehir (İstanbul, Ankara, vb.)
+  district    String?     // Semt (Kadıköy, Beşiktaş, vb.)
+  coordinates String?     // JSON olarak lat-lng koordinatları saklanabilir
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  graffitis   Graffiti[]
+}
