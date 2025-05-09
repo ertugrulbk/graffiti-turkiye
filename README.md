@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Türkiye Graffiti Galerisi
 
-## Getting Started
+Türkiye'nin sokak sanatı arşivi - Türkiye'deki graffiti ve sokak sanatı eserlerini keşfedin.
 
-First, run the development server:
+## Proje Hakkında
+
+Bu proje, Türkiye'deki graffiti ve sokak sanatı eserlerini, sanatçılarını ve konumlarını bir araya getiren bir web uygulamasıdır. Kullanıcılar, farklı şehirlerdeki çalışmaları keşfedebilir, sanatçılar hakkında bilgi edinebilir ve eserlerin detaylarını inceleyebilirler.
+
+## Özellikler
+
+- Galeri görünümünde tüm graffiti çalışmalarını listeler
+- Sanatçı profilleri ve çalışma detayları
+- Şehir ve konuma göre filtreleme
+- Türkiye'nin farklı şehirlerindeki çalışmaları görebilme
+- Bir graffiti eserinin birden fazla sanatçı tarafından oluşturulabilmesi
+
+## Teknolojiler
+
+- Next.js 14
+- React
+- Tailwind CSS
+- Prisma ORM
+- SQLite veritabanı
+
+## Kurulum
+
+Bu projeyi yerel ortamınızda çalıştırmak için:
 
 ```bash
+# Repoyu klonlayın
+git clone https://github.com/kullaniciadi/turkiye-graffiti.git
+cd turkiye-graffiti
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Veritabanını oluşturun
+npx prisma db push
+
+# Örnek veri oluşturun
+# Tarayıcıda localhost:3000/api/seed adresini ziyaret edin
+
+# Uygulamayı başlatın
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açarak uygulamayı görüntüleyebilirsiniz.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Veritabanı Yapısı
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Projede üç ana model bulunmaktadır:
 
-## Learn More
+1. **Graffiti**: Eser bilgileri (başlık, açıklama, fotoğraf, yıl)
+2. **Artist**: Sanatçı bilgileri (isim, bio, sosyal medya, uzmanlık alanı)
+3. **Location**: Konum bilgileri (şehir, semt, koordinatlar)
 
-To learn more about Next.js, take a look at the following resources:
+Bu modeller arasındaki ilişkiler sayesinde, bir eserin birden fazla sanatçı tarafından yapılabilmesi ve her şehre ait birden fazla eser olabilmesi mümkündür.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lisans
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Bu proje [MIT lisansı](LICENSE) altında lisanslanmıştır.
 
-## Deploy on Vercel
+## İletişim
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Proje hakkında sorularınız veya önerileriniz için: info@turkiyegraffiti.com
