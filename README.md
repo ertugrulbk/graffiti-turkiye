@@ -20,7 +20,8 @@ Bu proje, Türkiye'deki graffiti ve sokak sanatı eserlerini, sanatçılarını 
 - React
 - Tailwind CSS
 - Prisma ORM
-- SQLite veritabanı
+- Vercel Postgres veritabanı
+- Vercel hosting
 
 ## Kurulum
 
@@ -34,6 +35,11 @@ cd turkiye-graffiti
 # Bağımlılıkları yükleyin
 npm install
 
+# .env dosyasını oluşturun ve Vercel Postgres bilgilerinizi ekleyin
+# .env için örnek:
+# POSTGRES_PRISMA_URL=postgres://...
+# POSTGRES_URL_NON_POOLING=postgres://...
+
 # Veritabanını oluşturun
 npx prisma db push
 
@@ -45,6 +51,15 @@ npm run dev
 ```
 
 Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açarak uygulamayı görüntüleyebilirsiniz.
+
+## Vercel'e Deployment
+
+1. GitHub'a projeyi push edin
+2. Vercel dashboard'a giriş yapın
+3. "New Project" seçeneğini tıklayın
+4. GitHub repo'nuzu seçin
+5. "PostgreSQL Database" ekleyin
+6. Deploy butonuna tıklayın
 
 ## Veritabanı Yapısı
 
