@@ -55,7 +55,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default function GraffitDetail({ params }: Props) {
+export default async function GraffitDetail({ params }: Props) {
   // Varsayılan olarak ilk eseri gösteriyoruz, gerçek uygulamada API'den veri çekilecek
   const graffiti = graffitiItems.find(item => item.id === params.id) || graffitiItems[0];
 
