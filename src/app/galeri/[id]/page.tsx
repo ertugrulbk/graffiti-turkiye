@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from "next/link";
 
 // Örnek graffiti verisi
@@ -49,8 +50,12 @@ const graffitiItems = [
   }
 ];
 
-// Dinamik olarak ID'ye göre eser detayını bulma
-export default function GraffitDetail({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default function GraffitDetail({ params }: Props) {
   // Varsayılan olarak ilk eseri gösteriyoruz, gerçek uygulamada API'den veri çekilecek
   const graffiti = graffitiItems.find(item => item.id === params.id) || graffitiItems[0];
 
