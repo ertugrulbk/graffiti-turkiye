@@ -30,7 +30,7 @@ Proje oluşturulduktan sonra, bağlantı bilgilerinizi alın:
 Projenizin kök dizininde `.env` adında bir dosya oluşturun ve içine şunu ekleyin:
 
 ```
-DATABASE_URL=postgresql://kullaniciadi:sifre@endpoint.neon.tech/neondb
+DATABASE_URL=postgresql://kullanici:parola@host:port/veritabani
 ```
 
 Yukarıdaki örnek URL'yi Neon.tech'ten aldığınız gerçek bağlantı bilgileriyle değiştirin.
